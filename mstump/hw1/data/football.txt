@@ -1,0 +1,118 @@
+Team,2003 Wins,2004 Wins
+Air Force,7,5
+Akron,7,6
+Alabama,4,6
+Arizona,2,3
+Arizona St.,5,8
+Arkansas,8,5
+Arkansas St.,5,3
+Army,0,2
+Auburn,7,12
+Ball St.,4,2
+Baylor,3,3
+Boise St.,12,11
+Boston College,7,8
+Bowling Green,10,8
+Brigham Young,4,5
+Buffalo,1,2
+California,7,10
+Central Fla.,3,0
+Central Michigan,3,4
+Cincinnati,5,6
+Clemson,8,6
+Colorado,5,7
+Colorado St.,7,4
+Connecticut,9,7
+Duke,4,2
+East Carolina,1,2
+Eastern Michigan,3,4
+Florida,8,7
+Florida St.,10,8
+Fresno St.,8,8
+Georgia,10,9
+Georgia Tech,6,6
+Hawaii,8,7
+Houston,7,3
+Idaho,3,3
+Illinois,1,3
+Indiana,2,3
+Iowa,9,9
+Iowa St.,2,6
+Kansas,6,4
+Kansas St.,11,4
+Kent,5,5
+Kentucky,4,2
+La. Lafayette,4,4
+La. Monroe,1,5
+La. Tech,5,5
+Louisville,9,10
+LSU,12,9
+Marshall,8,6
+Maryland,9,5
+Memphis,8,8
+"Miami, Fla.",10,8
+"Miami, Ohio",12,8
+Michigan,10,9
+Michigan St.,8,5
+Middle Tennessee,4,5
+Minnesota,9,6
+Mississippi,9,4
+Mississippi St.,2,3
+Missouri,8,5
+Navy,8,9
+Nebraska,9,5
+Nevada,6,5
+Nevada Las Vegas,6,2
+New Mexico,8,7
+New Mexico St.,3,5
+No. Illinois,10,8
+North Carolina,2,6
+North Carolina St.,7,5
+North Texas,9,7
+Northwestern,6,6
+Notre Dame,5,6
+Ohio St.,10,7
+Ohio U.,2,4
+Oklahoma,12,12
+Oklahoma St.,9,7
+Oregon,8,5
+Oregon St.,7,6
+Penn St.,3,4
+Pittsburgh,8,8
+Purdue,9,7
+Rice,5,3
+Rutgers,5,4
+San Diego St.,6,4
+San Jose St.,3,2
+SMU,0,3
+So. Mississippi,9,6
+South Carolina,5,6
+South Florida,7,4
+Stanford,4,4
+Syracuse,6,6
+TCU,11,5
+Temple,1,2
+Tennessee,10,9
+Texas,10,10
+Texas A&M,4,7
+Texas El Paso,2,8
+Texas Tech,7,7
+Toledo,8,9
+Troy St.,6,7
+Tulane,5,5
+Tulsa,8,4
+UAB,5,7
+UCLA,6,6
+USC,11,12
+Utah,9,11
+Utah St.,3,3
+Vanderbilt,2,2
+Virginia,7,8
+Virginia Tech,8,10
+Wake Forest,5,4
+Washington,6,1
+Washington St.,9,5
+West Virginia,8,8
+Western Michigan,5,1
+Wisconsin,7,9
+Wyoming,4,6
