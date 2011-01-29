@@ -1,7 +1,7 @@
 Problem 1.A
-Column one is treated as numeric, column two is treated as catagorial.
+First column is quantitative; the second is qualitative.
 
-str(read.csv('myfirstdata.csv'))
+str(read.csv('data/myfirstdata.csv'))
 'data.frame':	1999 obs. of  2 variables:
  $ X0  : int  0 0 1 0 1 0 1 0 1 3 ...
  $ X0.1: Factor w/ 22 levels "0","1","10","11",..: 14 2 11 1 11 2 2 1 1 11 ...
@@ -13,22 +13,32 @@ variables" states that R attempts to convert data to the following
 types in a decending order of preference: "logical, integer, numeric
 and complex, moving on if any entry is not missing and cannot be
 converted.  If all of these fail, the variable is converted to a
-factor."  On line 1463 of the input file myfirstdata.csv the second
+factor."  On line 1463 of the input file "myfirstdata.csv" the second
 column contains the value "two" which cannot be converted to logical,
 integer, numeric or complex and as a result the values for the entire
 column are imported as "factor".
 
+
+Problem 1.C
+data <- read.csv('data/myfirstdata.csv')
+png("hw_1_problem_1_c_col_1.png")
+plot(data[,1])
+dev.off()
+
+png("hw_1_problem_1_c_col_2.png")
+plot(data[,2])
+dev.off()
 
 Problem 1.D
 #VALUE!
 
 
 Problem 2.A
-sample(read.csv('twomillion.csv', header=FALSE)[,1], 10000, replace=TRUE)
+sample(read.csv('data/twomillion.csv', header=FALSE)[,1], 10000, replace=TRUE)
 
 
 Problem 2.B
-data = sample(read.csv('twomillion.csv', header=FALSE)[,1], 10000, replace=TRUE)
+data = sample(read.csv('data/twomillion.csv', header=FALSE)[,1], 10000, replace=TRUE)
 mean(data):  9.422355
 max(data):  17.03436
 min(data):  2.268879
@@ -37,7 +47,7 @@ quantile(data, .25):  8.100489
 
 
 Problem 2.C
-data = read.csv('twomillion.csv', header=FALSE)[,1]
+data = read.csv('data/twomillion.csv', header=FALSE)[,1]
 mean(data):  9.45103
 max(data):  18.96657
 min(data):  -0.1115070
@@ -46,7 +56,7 @@ quantile(data, .25):  8.103118
 
 
 Problem 2.D
-write.csv(data, 'twomillion-sample.csv')
+write.csv(data, 'data/twomillion-sample.csv')
 =AVERAGE(B:B):  9.422354942
 =MAX(B:B):  17.0343598
 =MIN(B:B):  2.268878857
@@ -59,29 +69,40 @@ It will only fit 1048576 rows
 
 
 Problem 3.A
-dataOH = read.csv('OH_house_prices.txt', header=FALSE)
-dataCA = read.csv('CA_house_prices.txt', header=FALSE)
+dataOH = read.csv('data/OH_house_prices.txt', header=FALSE)
+dataCA = read.csv('data/CA_house_prices.txt', header=FALSE)
+png("hw_1_problem_3_a.png")
 boxplot(dataCA[,1],dataOH[,1], main=" House Boxplot ", names=c("CA houses","Ohio houses"),ylab="Prices", col=3)
+dev.off()
 
 
 Problem 3.B
-dataCA = read.csv('CA_house_prices.txt', header=FALSE)
-hist(dataCA[,1], breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000, 3500), xlab="Price in thousands", main="Distribution of CA house prices - Matthew Stump", col=5)
+dataCA = read.csv('data/CA_house_prices.txt', header=FALSE)
+png("hw_1_problem_3_b.png")
+hist(dataCA[,1], breaks=c(0, 500, 1000, 1500, 2000, 2500, 3000, 3500), xlab="Price in thousands", main="Distribution of CA house prices - Group J", col=5)
+dev.off()
 
 
 Problem 3.C
-plot(ecdf(dataCA[,1]), verticals=TRUE, do.p=FALSE, main="ECDF of CA and OH home prices - Matthew Stump", xlab="Home Prices", ylab="Cumulative Percent", col="blue")
+png("hw_1_problem_3_c.png")
+plot(ecdf(dataCA[,1]), verticals=TRUE, do.p=FALSE, main="ECDF of CA and OH home prices - Group J", xlab="Home Prices", ylab="Cumulative", col="blue")
 lines(ecdf(dataOH[,1]), verticals=TRUE, do.p=FALSE, col.h="red", col.v="red", lwd=1)
-legend(3000, .6, c("CA","OH"), col=c("blue","red"), lwd=c(1,1))
+legend(2800, .6, c("CA","OH"), col=c("blue","red"), lwd=c(1,1))
+dev.off()
 
 
 Problem 4.A
-data = read.csv("football.txt")
-plot(data[,2], data[,3], main="Scatter plot of football scores - Matthew Stump", xlab="2003 Scores", ylab="2004 scores")
+data = read.csv("data/football.txt")
+png("hw_1_problem_4_a.png")
+plot(data[,2], data[,3], main="Scatter plot of football scores - Group J", xlab="2003 Scores", ylab="2004 scores")
+dev.off()
 
 
 Problem 4.B
-Two teams have the same set of scores for both 2003 and 2004.
+The plot points represent discrete values. Many points in a scatter
+plot may be plotted over top of one another.  No example was given in
+class for dealing with with this issue.  Possible remedies include
+using a small offset, or multiple colors.
 
 
 Problem 4.C
