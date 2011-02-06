@@ -24,9 +24,7 @@ cvtree <- function(data, depth, cv) {
         err.test  <- 1 - sum(test.t   == predict(fit, test.d,  type="class")) / length(test.t)
         err <- rbind(err, data.frame("depth"=depth, "cv"=cv, "err.train"=err.train, "err.test"=err.test))
     }
-    out <- data.frame()
-    out <- rbind(out, data.frame("depth"=depth, "cv"=cv, "err.train"=mean(err$err.train), "err.test"=mean(err$err.test)))
-    return(out)
+    return(data.frame("depth"=depth, "cv"=cv, "err.train"=mean(err$err.train), "err.test"=mean(err$err.test)))
 }
 
 data         <- read.csv('data/winequality-red.txt', sep=";", header=TRUE)
