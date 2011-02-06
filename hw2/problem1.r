@@ -1,9 +1,3 @@
-d <- read.csv('data/table4_8pg199.txt', header=TRUE)
-cat("Data:\n")
-print(d)
-
-sorted <- d[order(d[4]), ]
-scount <- nrow(sorted)
 
 findsplits <- function(h, t, r) {
     if (length(t) > 0) {
@@ -43,11 +37,15 @@ cgini <- function(df) {
     return(1 - e1^2 - e2^2)
 }
 
+d <- read.csv('data/table4_8pg199.txt', header=TRUE)
+sorted <- d[order(d[4]), ]
+scount <- nrow(sorted)
+pentropy <- centropy(sorted)
+split <- findsplits(sorted$a3[1], tail(sorted$a3, -1), vector())
+
 error <- data.frame()
 gini <- data.frame()
 entropy <- data.frame()
-pentropy <- centropy(sorted)
-split <- findsplits(sorted$a3[1], tail(sorted$a3, -1), vector())
 
 for (s in split) {
 
@@ -81,6 +79,10 @@ for (s in split) {
     gini  <- rbind(gini, data.frame("split"=s, "le"=lgini, "gt"=ggini, "gini"=sgini))
 
 }
+
+cat("Data:\n")
+print(d)
+
 cat("\nMisclassification error:\n")
 print(error)
 
