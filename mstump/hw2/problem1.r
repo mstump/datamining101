@@ -1,5 +1,3 @@
-require("reldist")
-
 d <- read.csv('data/table4_8pg199.txt', header=TRUE)
 cat("Data:\n")
 print(d)
