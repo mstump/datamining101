@@ -18,16 +18,27 @@ ef.test <- function (x) {
     1 - sum(test.data$quality == round(x)) / test.size
 }
 
-model <- lm.ridge(train.data$quality~., data=train.data[,1:11], lambda=exp(seq(-15,6,by=0.01)))
+ef.data <- function (x) {
+    1 - sum(data$quality == round(x)) / data.size
+}
+
+l      <- exp(seq(-15,6,by=0.01))
+output <- data.frame("lambda"=l)
+model  <- lm.ridge(train.data$quality~., data=train.data[,1:11], lambda=l)
 
 train.pred <- as.matrix(train.data[,1:11]) %*% t(coef(model)[,-1]) +  rep(1,train.size) %o% coef(model)[,1]
-train.err  <- data.frame("err"=apply(train.pred, 2, ef.train))
-train.err  <- cbind(train.err, "lambda"=as.numeric(row.names(train.err)))
+output     <- cbind(output, data.frame("Train"=apply(train.pred, 2, ef.train)))
 
-test.pred <- as.matrix(test.data[,1:11]) %*% t(coef(model)[,-1]) +  rep(1,test.size) %o% coef(model)[,1]
-test.err  <- data.frame("err"=apply(test.pred, 2, ef.test))
-test.err  <- cbind(test.err, "lambda"=as.numeric(row.names(test.err)))
+test.pred  <- as.matrix(test.data[,1:11]) %*% t(coef(model)[,-1]) +  rep(1,test.size) %o% coef(model)[,1]
+output     <- cbind(output, data.frame("Test"=apply(test.pred, 2, ef.test)))
 
+data.pred  <- as.matrix(data[,1:11]) %*% t(coef(model)[,-1]) +  rep(1,data.size) %o% coef(model)[,1]
+output     <- cbind(output, data.frame("Data"=apply(data.pred, 2, ef.data)))
 
-p <- qplot(lambda, err, data=train.err, geom="line", colour=I("red"))
-p + geom_line(mapping=aes(x=lambda, y=err), data=test.err, colour=I("blue"))
+d <- melt(output, id="lambda")
+p <- ggplot(d, aes(lambda, value, colour=variable)) 
+p <- p + geom_line()
+p <- p + scale_colour_discrete(name = "")
+p <- p + scale_x_continuous(expression(lambda))
+p <- p + scale_y_continuous("Error Rate")
+print(p)
